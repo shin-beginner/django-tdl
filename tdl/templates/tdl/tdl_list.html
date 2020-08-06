@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+{% block content %}
+       <h1>くじ引き内容</h1>
+
+<table class='table table-striped table-hover'>
+    <tr>
+        <th>内容</th><th>編集</th><th>削除</th>
+    </tr>
+    {% for tdl in object_list%}
+    <tr>
+        <td> {{ tdl.item }}</td>
+        <td> <a href='{% url "tdl:update" tdl.id %}'>編集</a> </td>
+        <td> <a href='{% url "tdl:delete" tdl.id %}'>削除</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+    <div>
+        <a href='{% url "tdl:create" %}'>新規作成</a>
+    </div>
+{% endblock %}

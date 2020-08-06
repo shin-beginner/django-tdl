@@ -1,0 +1,15 @@
+{% extends './base.html' %}
+{% block content %}
+
+<h1>くじ引きの情報{{ object|yesno:'更新,作成' }}</h1>
+
+<form action ='' method='post'>{% csrf_token %}
+  {{ form.as_p }}
+  <button type='submit' class='submit'>{{ object|yesno:'更新,作成'}}</button>
+</form>
+
+<div>
+  <a href='JavaScript:history.back()'>戻る</a>
+</div>
+
+{% endblock %}
